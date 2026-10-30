@@ -1,0 +1,20 @@
+name: pt-version-check
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+  issue_comment:
+    types: [created]
+jobs:
+  j:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "MARKER=MAIN-VERSION"
+          echo "GITHUB_SHA=$GITHUB_SHA"
+          echo "GITHUB_REF=$GITHUB_REF"
+          echo "GITHUB_HEAD_REF=$GITHUB_HEAD_REF"
+          echo "GITHUB_BASE_REF=$GITHUB_BASE_REF"
+          echo "GITHUB_WORKFLOW_REF=$GITHUB_WORKFLOW_REF"
+          echo "PR_HEAD_SHA=${{ github.event.pull_request.head.sha }}"
+          echo "PR_BASE_SHA=${{ github.event.pull_request.base.sha }}"
+          echo "COMMENT_ID=${{ github.event.comment.id }}"
