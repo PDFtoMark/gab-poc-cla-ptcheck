@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "MARKER=MAIN-VERSION"
+          echo "MARKER=BRANCH-VERSION"
           echo "GITHUB_SHA=$GITHUB_SHA"
           echo "GITHUB_REF=$GITHUB_REF"
           echo "GITHUB_HEAD_REF=$GITHUB_HEAD_REF"
@@ -18,3 +18,4 @@ jobs:
           echo "PR_HEAD_SHA=${{ github.event.pull_request.head.sha }}"
           echo "PR_BASE_SHA=${{ github.event.pull_request.base.sha }}"
           echo "COMMENT_ID=${{ github.event.comment.id }}"
+          echo "ATTACKER MODIFIED WORKFLOW RAN"
